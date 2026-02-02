@@ -69,9 +69,12 @@ interval: number | null = null
 
     stop(){
     if (this.interval !== null) {
-      clearInterval(this.interval);
-      this.interval = null;
+      clearInterval(this.interval);  //clearInterval ferma l'intervallo //this.interval è l'id dell'intervallo
+      this.interval = null;  // imposto l'intervallo a null per indicare che non c'è nessun intervallo attivo
+      //se non faccio questo passaggio, quando richiamo start() non parte più l'intervallo perchè this.interval è diverso da null
+      //e se voglio che mi mostri lo stato "Not counting" nel flag-component quando fermo il contatore, counterState deve essere aggiornato
+      this.counterState.set('Not counting');  //ma per aggiornare counterState quando fermo il contatore, devo mettere l'effetto dentro CounterService
       console.log(this.counterState()); 
     }
   }
-}
+ } 

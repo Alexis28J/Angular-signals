@@ -14,7 +14,7 @@ export class FlagComponents {
 
   emotionServ = inject(EmotionService);
 
-  state = signal('');  // definisco un signal chiamato state che inizializzo con una stringa vuota
+  state = signal('');  // definisco un signal chiamato state che inizializzo con una stringa vuota  //questo signal conterrà lo stato combinato del contatore e dell'emozione
 
   constructor(){
     //console.log('flag-component', this.counter.count());  //count() è un metodo di CounterService 
@@ -24,11 +24,13 @@ export class FlagComponents {
       console.log('flag', this.counter.count())
       console.log('flag 2', this.emotionServ.emotion())
 
-      if ( this.counter.interval !== null ) {   //CORREGGERE
-        this.state.set("I'm " + this.emotionServ.emotion() + " and I'm counting " + this.counter.count())
-      } else {
-        this.state.set("I'm " + this.emotionServ.emotion() + " and I'm not counting " + this.counter.count())
-      }
+      
+      if ( this.counter.interval !== null ) {   // se l'intervallo è diverso da null
+        this.state.set("I'm " + this.emotionServ.emotion() + " and I'm counting " + this.counter.count()) //allora cambio lo stato del signal state con una stringa che contiene l'emozione e il contatore
+      } 
+      else {  //altrimenti
+        this.state.set("I'm " + this.emotionServ.emotion() + " and " + this.counter.counterState()) //cambio lo stato del signal state con una stringa che contiene l'emozione e lo stato del contatore
+      } 
       }); 
   }
 }
