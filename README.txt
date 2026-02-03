@@ -39,3 +39,7 @@ Leaflet - https://leafletjs.com/    Plugin - https://leafletjs.com/plugins.html
 
 Figma - https://www.figma.com/it-it/
  
+
+TASK: SITO CONTO ALLA ROVESCIA (vedi schema del sito fatto dal prof.)
+4 QUADRANTI CHE DIRANNO QUANTI SECONDI MANCANO ALLA SCADENZA: GIORNO, SETTIMANA, MESE E ANNO
+OGNI QUADRANTE AVRà TRE TASTI: SECONDI, MINUTI E ORE. 
