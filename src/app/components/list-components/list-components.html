@@ -1,6 +1,7 @@
-<!-- Metodo alternativo per far communicare i componenti senza usare un servizio (vedi order-components.html, order-components.ts, list-component.html e list-component.ts) -->
+<!-- Metodo alternativo per far communicare i componenti senza usare un servizio (vedi order-components.html, order-components.ts, list-component.html, list-component.ts e student-service.ts) -->
 
-<app-order-components (orderByAgePressed)="orderByAge()" (orderByNamePressed)="orderByName()"></app-order-components>
+<app-order-components (orderByAgePressed)="orderByAge()" (orderByNamePressed)="orderByName($event)"></app-order-components>
+<!-- $event è obbligatorio metterlo, non posso mettere isAscending -->
 
 <div>
     @for (student of studentServ.students(); track $index) {

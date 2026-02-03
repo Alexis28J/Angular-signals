@@ -47,8 +47,13 @@ export class StudentService {
   }
 
 
-  orderStudentsByName() { //questa la scriviamo in maniera lambda
+  orderStudentsByName(isAscending: boolean) { //questa la scriviamo in maniera lambda 
+    if (isAscending) {
     this.students.update(oldStudents => oldStudents.sort((s1, s2) => s1.name.localeCompare(s2.name)));
     //update prende in input una funzione che riceve il valore vecchio e restituisce il valore nuovo
+    } else {
+    this.students.update(oldStudents => oldStudents.sort((s1, s2) => s2.name.localeCompare(s1.name)));
+    }
+
   }
 }

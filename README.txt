@@ -31,9 +31,11 @@ ng g s /services/student-service/studentService - abbiamo creato un servizio per
 
 ng g c /components/orderComponents - abbiamo creato orderComponents
  
-Metodo alternativo per far communicare i componenti senza usare un servizio (vedi order-components.html, order-components.ts, list-component.html e list-component.ts)
+Metodo alternativo per far communicare i componenti senza usare un servizio (vedi order-components.html, order-components.ts, list-component.html, list-component.ts e student-service.ts)
 
 Angular components - https://material.angular.dev/components/categories
 
 Leaflet - https://leafletjs.com/    Plugin - https://leafletjs.com/plugins.html
+
+Figma - https://www.figma.com/it-it/
  

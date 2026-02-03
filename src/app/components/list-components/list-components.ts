@@ -14,11 +14,12 @@ export class ListComponents {
   constructor (public studentServ: StudentService) {}
 
 
-  //Metodo alternativo per far communicare i componenti senza usare un servizio 
-  //(vedi order-components.html, order-components.ts, list-component.html e list-component.ts)
- orderByName(){
+//Metodo alternativo per far communicare i componenti senza usare un servizio (vedi order-components.html, order-components.ts, list-component.html, list-component.ts e student-service.ts)
+ orderByName(isAscending: boolean){
  console.log('List component - Order by name');
- this.studentServ.orderStudentsByName();  
+ console.log('Is ascending: ', isAscending);
+ 
+ this.studentServ.orderStudentsByName(isAscending);  
  }
 
  orderByAge(){
