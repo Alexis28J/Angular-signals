@@ -1,0 +1,12 @@
+<!-- Metodo alternativo per far communicare i componenti senza usare un servizio (vedi order-components.html, order-components.ts, list-component.html e list-component.ts) -->
+
+<app-order-components (orderByAgePressed)="orderByAge()" (orderByNamePressed)="orderByName()"></app-order-components>
+
+<div>
+    @for (student of studentServ.students(); track $index) {
+        <div>
+            <span>{{student.name}}</span>
+            <span>{{student.age}}</span>
+        </div>
+    }
+</div>

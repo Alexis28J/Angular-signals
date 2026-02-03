@@ -1,5 +1,4 @@
 import { computed, Injectable, signal, WritableSignal } from '@angular/core';
-import { interval } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +15,7 @@ interval: number | null = null
  //definiamo una proprietà count come un segnale scrivibile di tipo numero inizializzato a 0
  //signal serve per creare un segnale reattivo che può essere osservato e aggiornato
 
- counterState: WritableSignal<string> = signal('Not counting')
+ counterState: WritableSignal<string> = signal('Not counting');
 
  doubleCount = computed(() => this.count() * 2);  //un computed signal viene inizializzato con una funzione  //funzione che raddoppia il counter
  // il computed signal DIPENDE da altri signal
@@ -57,6 +56,7 @@ interval: number | null = null
 
     start(){
     if (this.interval === null) {
+      this.counterState.set('Counting');
       this.interval = setInterval(() => {
       this.increment();
     }, 1000)
@@ -70,10 +70,11 @@ interval: number | null = null
     stop(){
     if (this.interval !== null) {
       clearInterval(this.interval);  //clearInterval ferma l'intervallo //this.interval è l'id dell'intervallo
+      this.counterState.set('Not counting');
       this.interval = null;  // imposto l'intervallo a null per indicare che non c'è nessun intervallo attivo
       //se non faccio questo passaggio, quando richiamo start() non parte più l'intervallo perchè this.interval è diverso da null
       //e se voglio che mi mostri lo stato "Not counting" nel flag-component quando fermo il contatore, counterState deve essere aggiornato
-      this.counterState.set('Not counting');  //ma per aggiornare counterState quando fermo il contatore, devo mettere l'effetto dentro CounterService
+      //ma per aggiornare counterState quando fermo il contatore, devo mettere l'effetto dentro CounterService
       console.log(this.counterState()); 
     }
   }
